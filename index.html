@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG 상생 HOPE 드림 대출 - 인포그래픽 보고서</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts (Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 620px;
+            height: 360px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 380px;
+            }
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #004ea2 0%, #0072ce 50%, #00a3e0 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 78, 162, 0.1), 0 8px 10px -6px rgba(0, 78, 162, 0.06);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Banner -->
+    <header class="gradient-header text-white py-14 px-4 sm:px-8 shadow-xl">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-bold tracking-wide uppercase mb-3">
+                    <i class="fa-solid fa-building-columns text-amber-300"></i>
+                    <span>새마을금고중앙회</span>
+                    <span>•</span>
+                    <span>금융상품개발팀 보고서</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+                    MG 상생HOPE드림 대출 <span class="text-amber-300 text-3xl sm:text-4xl font-extrabold">(가칭)</span>
+                </h1>
+                <p class="mt-3 text-sky-100 text-lg sm:text-xl max-w-3xl font-normal leading-relaxed">
+                    지역 소상공인 경영난 극복 지원 및 포용적 서민금융 확대를 위한 지역 밀착형 맞춤 특례상품 기획서
+                </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/25 text-right min-w-[250px] shadow-lg">
+                <div class="text-sm text-sky-200 font-medium"><i class="fa-solid fa-file-signature mr-1"></i>문서 번호</div>
+                <div class="text-base font-mono font-bold">FPD-2026-0824</div>
+                <div class="text-sm text-sky-200 mt-3 font-medium"><i class="fa-solid fa-vault mr-1"></i>최대 공급 규모</div>
+                <div class="text-3xl font-black text-amber-300">2,000억 원 + α</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation / Sticky Bar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 flex overflow-x-auto space-x-6 text-base font-bold py-3.5 scrollbar-none">
+            <a href="#overview" class="text-blue-900 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                <i class="fa-solid fa-chart-line text-blue-600"></i>1. 기획 배경
+            </a>
+            <a href="#target" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                <i class="fa-solid fa-users text-blue-600"></i>2. 타깃 및 자격
+            </a>
+            <a href="#specs" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                <i class="fa-solid fa-sliders text-blue-600"></i>3. 상품 스펙
+            </a>
+            <a href="#rates" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                <i class="fa-solid fa-percent text-blue-600"></i>4. 금리 우대
+            </a>
+            <a href="#risk" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-blue-600"></i>5. 리스크 관리
+            </a>
+            <a href="#impact" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                <i class="fa-solid fa-chart-pie text-blue-600"></i>6. 기대효과
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content Body -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex-grow space-y-12">
+
+        <!-- MG Official Brand Poster Section (Warm Golden Theme - Previous Version Style) -->
+        <div class="bg-gradient-to-r from-amber-950 via-yellow-950 to-amber-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border-2 border-amber-400/60">
+            <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-10 -top-10 w-60 h-60 bg-yellow-300/15 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <div class="flex flex-col gap-5 relative z-10">
+                <div class="flex items-center justify-between border-b border-amber-400/30 pb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-amber-400 text-slate-950 text-xs sm:text-sm font-black px-3.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-image"></i> 공식 브랜드 비주얼 포스터
+                        </span>
+                        <span class="text-amber-200 text-sm font-bold hidden sm:flex items-center gap-1.5">
+                            <i class="fa-solid fa-building-columns text-amber-300"></i> 새마을금고 상생 캐릭터 '블루'
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-slate-900/80 text-amber-200 text-xs font-bold px-3 py-1.5 rounded-lg border border-amber-400/30 flex items-center gap-1.5 shadow-inner">
+                            <i class="fa-solid fa-lock text-amber-400"></i> 공식 고정 비주얼
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Poster Visual Display Area (Warm Golden Yellow Sunrise & Market Theme) -->
+                <div class="relative w-full rounded-xl overflow-hidden bg-gradient-to-br from-amber-100 via-amber-200 to-yellow-300 border-2 border-amber-400/50 shadow-2xl">
+                    <svg viewBox="0 0 1200 520" class="w-full h-auto object-cover block" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="warmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fffbe1" />
+                                <stop offset="50%" stop-color="#fef08a" />
+                                <stop offset="100%" stop-color="#f59e0b" />
+                            </linearGradient>
+                            <linearGradient id="titleGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#78350f" />
+                                <stop offset="100%" stop-color="#451a03" />
+                            </linearGradient>
+                            <linearGradient id="accentOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ea580c" />
+                                <stop offset="100%" stop-color="#c2410c" />
+                            </linearGradient>
+                            <linearGradient id="blueMascotWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#38bdf8" />
+                                <stop offset="100%" stop-color="#0284c7" />
+                            </linearGradient>
+                            <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#78350f" flood-opacity="0.25"/>
+                            </filter>
+                        </defs>
+
+                        <!-- Background Base -->
+                        <rect width="1200" height="520" fill="url(#warmBg)"/>
+                        
+                        <!-- Sunlight Rays & Background Elements -->
+                        <circle cx="950" cy="120" r="320" fill="#fef08a" opacity="0.6"/>
+                        <circle cx="950" cy="120" r="200" fill="#ffffff" opacity="0.4"/>
+                        <path d="M0 520 L1200 520 L1200 420 Q850 360 550 450 Q250 540 0 430 Z" fill="#d97706" opacity="0.15"/>
+
+                        <!-- Left Main Slogan & Typography Banner Area -->
+                        <g transform="translate(65, 85)" filter="url(#softShadow)">
+                            <!-- Top Badge -->
+                            <rect x="0" y="0" width="230" height="36" rx="18" fill="#d97706"/>
+                            <text x="115" y="23" font-family="'Noto Sans KR', sans-serif" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">MG 상생 포용금융 프로젝트</text>
+
+                            <!-- Main Slogan Titles (Warm Brown & Orange Accent) -->
+                            <text x="0" y="90" font-family="'Noto Sans KR', sans-serif" font-size="44" font-weight="900" fill="url(#titleGold)">"새마을금고와 함께 그리는"</text>
+                            <text x="0" y="155" font-family="'Noto Sans KR', sans-serif" font-size="52" font-weight="900" fill="url(#accentOrange)">상생의 미래</text>
+
+                            <!-- Sub Subtitles -->
+                            <text x="0" y="210" font-family="'Noto Sans KR', sans-serif" font-size="19" font-weight="700" fill="#78350f">소상공인의 꿈을 응원합니다!</text>
+                            <text x="0" y="238" font-family="'Noto Sans KR', sans-serif" font-size="17" font-weight="500" fill="#92400e">지역 사회와 함께 크는 따뜻한 금융! <tspan font-weight="900" fill="#b45309">MG 상생 희망드림 대출</tspan></text>
+                            
+                            <text x="0" y="280" font-family="'Noto Sans KR', sans-serif" font-size="20" font-weight="900" fill="#d97706">희망드림, 따뜻한 동행.</text>
+
+                            <!-- Spec Highlight Box -->
+                            <g transform="translate(0, 310)">
+                                <rect x="0" y="0" width="460" height="105" rx="18" fill="#ffffff" fill-opacity="0.85" stroke="#f59e0b" stroke-width="2"/>
+                                
+                                <text x="25" y="38" font-family="'Noto Sans KR', sans-serif" font-size="15" font-weight="700" fill="#78350f">총 공급 한도</text>
+                                <text x="25" y="78" font-family="'Noto Sans KR', sans-serif" font-size="28" font-weight="900" fill="#b45309">2,000억 원 + α</text>
+
+                                <line x1="230" y1="18" x2="230" y2="88" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1.5"/>
+
+                                <text x="255" y="38" font-family="'Noto Sans KR', sans-serif" font-size="15" font-weight="700" fill="#78350f">최대 금리 우대</text>
+                                <text x="255" y="78" font-family="'Noto Sans KR', sans-serif" font-size="28" font-weight="900" fill="#0284c7">최대 연 2.0%p</text>
+                            </g>
+                        </g>
+
+                        <!-- Right Vector Artwork (Market Stall '희망드림 시장' + Mascot Blue + Merchant Auntie) -->
+                        <g transform="translate(650, 40)" filter="url(#softShadow)">
+                            <!-- Market Stall Background -->
+                            <rect x="220" y="100" width="260" height="340" rx="16" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+                            
+                            <!-- Market Roof Awning (Red & White Stripes) -->
+                            <path d="M200 100 L500 100 L480 50 L220 50 Z" fill="#dc2626"/>
+                            <path d="M230 50 L270 100 M310 50 L350 100 M390 50 L430 100" stroke="#ffffff" stroke-width="4" opacity="0.9"/>
+                            
+                            <!-- Market Signboard -->
+                            <rect x="240" y="12" width="220" height="38" rx="8" fill="#16a34a"/>
+                            <text x="350" y="37" font-family="'Noto Sans KR', sans-serif" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">희망드림 시장</text>
+
+                            <!-- Goods Containers / Fruits -->
+                            <circle cx="270" cy="380" r="30" fill="#f97316"/>
+                            <circle cx="330" cy="380" r="30" fill="#22c55e"/>
+                            <circle cx="390" cy="380" r="30" fill="#ef4444"/>
+
+                            <!-- Character 1: Smiling Merchant Auntie -->
+                            <g transform="translate(320, 130)">
+                                <circle cx="50" cy="50" r="38" fill="#fde047"/> <!-- Head -->
+                                <path d="M20 30 Q50 8 80 30 Q50 22 20 30 Z" fill="#475569"/> <!-- Hair -->
+                                <path d="M15 88 Q50 70 85 88 L80 180 L20 180 Z" fill="#e11d48"/> <!-- Clothes -->
+                                <path d="M28 105 L72 105 L76 180 L24 180 Z" fill="#ffffff" opacity="0.95"/> <!-- Apron -->
+                                <!-- Smile Face -->
+                                <circle cx="35" cy="45" r="4" fill="#1e293b"/>
+                                <circle cx="65" cy="45" r="4" fill="#1e293b"/>
+                                <path d="M40 62 Q50 72 60 62" stroke="#1e293b" stroke-width="3.5" fill="none"/>
+                            </g>
+
+                            <!-- Character 2: MG Mascot 'Blue' (Friendly Blue Bear) -->
+                            <g transform="translate(50, 110)">
+                                <!-- Body -->
+                                <ellipse cx="110" cy="180" rx="75" ry="85" fill="url(#blueMascotWarm)"/>
+                                <ellipse cx="110" cy="190" rx="48" ry="55" fill="#ffffff"/>
+                                <!-- Head -->
+                                <circle cx="110" cy="90" r="70" fill="url(#blueMascotWarm)"/>
+                                <!-- Ears -->
+                                <circle cx="50" cy="38" r="20" fill="#0284c7"/>
+                                <circle cx="170" cy="38" r="20" fill="#0284c7"/>
+                                <circle cx="50" cy="38" r="10" fill="#f43f5e" opacity="0.4"/>
+                                <circle cx="170" cy="38" r="10" fill="#f43f5e" opacity="0.4"/>
+                                <!-- Eyes -->
+                                <ellipse cx="85" cy="80" rx="7" ry="11" fill="#0f172a"/>
+                                <ellipse cx="135" cy="80" rx="7" ry="11" fill="#0f172a"/>
+                                <circle cx="87" cy="76" r="2.5" fill="#ffffff"/>
+                                <circle cx="137" cy="76" r="2.5" fill="#ffffff"/>
+                                <!-- Cheeks -->
+                                <circle cx="68" cy="98" r="9" fill="#f43f5e" opacity="0.7"/>
+                                <circle cx="152" cy="98" r="9" fill="#f43f5e" opacity="0.7"/>
+                                <!-- Nose & Smile -->
+                                <polygon points="110,92 102,103 118,103" fill="#f59e0b"/>
+                                <path d="M96 112 Q110 126 124 112" stroke="#0f172a" stroke-width="3.5" fill="none"/>
+
+                                <!-- Mascot Money Bag -->
+                                <g transform="translate(30, 200)">
+                                    <ellipse cx="20" cy="20" rx="22" ry="25" fill="#d97706"/>
+                                    <text x="20" y="26" font-family="'Noto Sans KR', sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">₩</text>
+                                </g>
+
+                                <!-- Mascot Holding MG Golden Heart -->
+                                <g transform="translate(110, 155)">
+                                    <path d="M 0 -8 A 13 13 0 0 1 22 -8 A 13 13 0 0 1 22 13 L 0 35 L -22 13 A 13 13 0 0 1 -22 -8 A 13 13 0 0 1 0 -8 Z" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/>
+                                    <text x="0" y="8" font-family="'Noto Sans KR', sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">MG</text>
+                                </g>
+                            </g>
+
+                            <!-- Warm Golden Handshake Glow -->
+                            <circle cx="280" cy="280" r="50" fill="#f59e0b" opacity="0.25"/>
+                            <path d="M245 280 L315 280" stroke="#d97706" stroke-width="7" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+
+                    <!-- Poster Footer Info Overlay -->
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-amber-950/90 via-amber-950/60 to-transparent p-5 sm:p-6 text-white flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 border-t border-amber-400/30">
+                        <div>
+                            <span class="bg-amber-400 text-slate-950 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full mb-1 inline-block"><i class="fa-solid fa-shield-halved mr-1"></i>공식 비주얼 내장형 (오프라인 호환)</span>
+                            <h4 class="text-lg sm:text-2xl font-black text-amber-300 leading-tight">"새마을금고와 함께 그리는 상생의 미래"</h4>
+                            <p class="text-xs sm:text-sm text-amber-100 mt-0.5">지역 소상공인과 동행하는 MG 상생 희망드림 대출 공식 브랜드 비주얼</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Executive Summary Intro Paragraph -->
+        <section class="bg-white rounded-2xl p-7 sm:p-9 card-shadow border border-slate-100">
+            <h2 class="text-2xl font-black text-slate-900 mb-4 flex items-center gap-3">
+                <span class="w-3 h-8 bg-blue-700 rounded-full inline-block"></span>
+                <i class="fa-solid fa-lightbulb text-amber-500 text-2xl"></i>
+                기획 개요 (Executive Summary)
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-base sm:text-lg">
+                최근 내수 침체와 고금리 여파로 지역 소상공인의 폐업과 채무 연체가 심화됨에 따라, 새마을금고는 지역 밀착 정체성을 바탕으로 
+                <strong class="text-blue-900 underline decoration-sky-400 underline-offset-4">165억 원의 특별출연금</strong>을 재원 삼아 총 <strong class="text-blue-900 underline decoration-sky-400 underline-offset-4">2,000억 원 규모의 저금리 특례보증 대출</strong>을 공급합니다.
+                전통시장 상인 및 지역화폐 가맹 소상공인에게 <strong class="text-blue-900">최대 5,000만 원</strong>의 한도와 <strong class="text-blue-900">최대 연 2.0%p의 금리 우대</strong> 혜택을 제공하여 금융 부담을 경감하고 지역 상생 생태계를 구축하고자 합니다.
+            </p>
+        </section>
+
+        <!-- KPI Key Highlights -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl p-6 border-l-8 border-rose-500 card-shadow hover:scale-105 transition-transform duration-200">
+                <div class="flex items-center justify-between text-slate-500 text-sm font-bold uppercase mb-1">
+                    <span>연간 사업 폐업자 수</span>
+                    <i class="fa-solid fa-user-slash text-rose-500 text-xl"></i>
+                </div>
+                <div class="text-3xl sm:text-4xl font-black text-rose-600 mt-2">100만 8,282명</div>
+                <div class="text-sm font-medium text-slate-600 mt-2"><i class="fa-solid fa-triangle-exclamation mr-1 text-rose-500"></i>통계 집계 이래 최초 100만 돌파</div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 border-l-8 border-amber-500 card-shadow hover:scale-105 transition-transform duration-200">
+                <div class="flex items-center justify-between text-slate-500 text-sm font-bold uppercase mb-1">
+                    <span>취약 자영업자 연체율</span>
+                    <i class="fa-solid fa-chart-line-down text-amber-500 text-xl"></i>
+                </div>
+                <div class="text-3xl sm:text-4xl font-black text-amber-600 mt-2">12.24%</div>
+                <div class="text-sm font-medium text-slate-600 mt-2"><i class="fa-solid fa-clock-rotate-left mr-1 text-amber-500"></i>12년 만에 최고치 (연체액 14.6조)</div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 border-l-8 border-blue-600 card-shadow hover:scale-105 transition-transform duration-200">
+                <div class="flex items-center justify-between text-slate-500 text-sm font-bold uppercase mb-1">
+                    <span>최대 우대 금리 폭</span>
+                    <i class="fa-solid fa-tag text-blue-600 text-xl"></i>
+                </div>
+                <div class="text-3xl sm:text-4xl font-black text-blue-700 mt-2">최대 연 2.0%p</div>
+                <div class="text-sm font-medium text-slate-600 mt-2"><i class="fa-solid fa-hand-holding-dollar mr-1 text-blue-600"></i>지역상생 1.0%p + 거래실적 1.0%p</div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 border-l-8 border-emerald-500 card-shadow hover:scale-105 transition-transform duration-200">
+                <div class="flex items-center justify-between text-slate-500 text-sm font-bold uppercase mb-1">
+                    <span>출연금 레버리지 비율</span>
+                    <i class="fa-solid fa-scale-balanced text-emerald-500 text-xl"></i>
+                </div>
+                <div class="text-3xl sm:text-4xl font-black text-emerald-600 mt-2">1 : 12.1 배</div>
+                <div class="text-sm font-medium text-slate-600 mt-2"><i class="fa-solid fa-arrow-up-right-dots mr-1 text-emerald-500"></i>165억 출연금 → 2,000억 지원 효과</div>
+            </div>
+        </section>
+
+        <!-- Section 1: Background & Need -->
+        <section id="overview" class="bg-white rounded-2xl p-7 sm:p-9 card-shadow border border-slate-100">
+            <div class="mb-8">
+                <span class="text-sm font-extrabold text-blue-700 tracking-wider uppercase bg-blue-100 px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-folder-open"></i> Section 01
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-area text-blue-600"></i>
+                    1. 상품 기획 배경 및 필요성
+                </h3>
+                <p class="text-slate-600 text-base sm:text-lg mt-2">
+                    지역 경기 둔화와 고금리로 자영업 생태계가 위기에 처함에 따라, 새마을금고의 선제적 포용금융과 지역재투자 정책 실행이 요구됩니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <!-- Left Chart -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <h4 class="text-lg font-extrabold text-slate-800 mb-2 text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-chart-bar text-blue-600"></i>
+                        자영업 대출 규모 및 취약 차주 연체율 추이
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-500 text-center mb-4">자영업자 전체 대출 1,070조 원 및 취약층 연체 급증</p>
+                    <div class="chart-container">
+                        <canvas id="crisisChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Right Explanatory Text & Leverage Doughnut -->
+                <div class="space-y-6">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h5 class="text-base font-bold text-blue-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass-chart text-blue-600"></i> 주요 위기 지표 분석
+                        </h5>
+                        <ul class="text-sm sm:text-base text-slate-700 space-y-2.5 list-none pl-0">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1"></i>
+                                <span><strong>폐업 사유 1위:</strong> 전체 폐업자 중 '사업 부진' 비중이 절반 가량을 차지하여 심각성 증대.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1"></i>
+                                <span><strong>다중채무 연체 위험:</strong> 개인사업자 대출 연체액은 14조 6,000억 원으로 급증.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1"></i>
+                                <span><strong>긴급 유동성 공급 필요:</strong> 저소득·저신용 소상공인을 위한 전용 대환대출 창구 마련 시급.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50/70 p-6 rounded-2xl border border-blue-200">
+                        <h5 class="text-base font-bold text-blue-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-piggy-bank text-blue-700"></i> 새마을금고 지역신보 출연 및 지원 모델
+                        </h5>
+                        <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+                            중앙회의 165억 원 특별출연(전년 대비 2.7배)을 기반으로 전국 526개 금고가 참여하여 약 2,000억 원의 저금리 특례보증 자금을 공급합니다.
+                        </p>
+                        <div class="chart-container !h-[200px] mt-3">
+                            <canvas id="leverageChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Target Audience & Eligibility -->
+        <section id="target" class="bg-white rounded-2xl p-7 sm:p-9 card-shadow border border-slate-100">
+            <div class="mb-8">
+                <span class="text-sm font-extrabold text-blue-700 tracking-wider uppercase bg-blue-100 px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-folder-open"></i> Section 02
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 flex items-center gap-2">
+                    <i class="fa-solid fa-bullseye text-blue-600"></i>
+                    2. 타깃 고객층 및 세부 지원 자격
+                </h3>
+                <p class="text-slate-600 text-base sm:text-lg mt-2">
+                    지역 경제 활성화의 핵심 축인 전통시장 상인 및 지역화폐 가맹 소상공인 집중 지원
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Target Card 1 -->
+                <div class="border-2 border-blue-200 bg-gradient-to-br from-blue-50/70 to-white p-7 rounded-2xl relative overflow-hidden shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl shadow-md">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">1대 핵심 타깃</span>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-blue-900">전통시장 상인</h4>
+                    <p class="text-sm sm:text-base text-slate-700 mt-3 leading-relaxed">
+                        「전통시장 및 상점가 육성을 위한 특별법」에 의거한 전통시장 및 상점가 내 영업 중이며, 
+                        <strong class="text-blue-900">온누리상품권 가맹점</strong>으로 등록된 소상공인을 집중 우대합니다.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-blue-200 flex items-center justify-between text-sm sm:text-base text-blue-900 font-bold">
+                        <span><i class="fa-solid fa-certificate text-amber-500 mr-1.5"></i>온누리 가맹 우대 금리</span>
+                        <span class="text-lg font-black text-blue-700">+0.5%p 할인</span>
+                    </div>
+                </div>
+
+                <!-- Target Card 2 -->
+                <div class="border-2 border-teal-200 bg-gradient-to-br from-teal-50/70 to-white p-7 rounded-2xl relative overflow-hidden shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-14 h-14 bg-teal-600 text-white rounded-2xl flex items-center justify-center text-2xl shadow-md">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <span class="bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full">2대 핵심 타깃</span>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-teal-900">지역화폐 가맹점</h4>
+                    <p class="text-sm sm:text-base text-slate-700 mt-3 leading-relaxed">
+                        관할 기초지자체 발행 <strong class="text-teal-900">지역화폐(지역사랑상품권) 가맹점</strong>으로 등록되어 
+                        지역 내 자금 순환 선순환에 기여하고 있는 소상공인을 지원합니다.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-teal-200 flex items-center justify-between text-sm sm:text-base text-teal-900 font-bold">
+                        <span><i class="fa-solid fa-certificate text-amber-500 mr-1.5"></i>지역화폐 가맹 우대 금리</span>
+                        <span class="text-lg font-black text-teal-700">+0.5%p 할인</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Criteria Box -->
+            <div class="mt-8 bg-slate-50 rounded-2xl p-6 sm:p-7 border border-slate-200">
+                <h4 class="text-base sm:text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-clipboard-check text-blue-600"></i> 자격 요건 및 제외 대상 요약
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm sm:text-base">
+                    <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <span class="font-extrabold text-blue-700 block mb-2 text-base flex items-center gap-1.5">
+                            <i class="fa-solid fa-calendar-check text-blue-600"></i> 영업 기간 요건
+                        </span>
+                        사업자등록 후 <strong class="text-slate-900">6개월 이상</strong> 실질 영업 중인 개인사업자
+                    </div>
+                    <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <span class="font-extrabold text-blue-700 block mb-2 text-base flex items-center gap-1.5">
+                            <i class="fa-solid fa-chart-line text-blue-600"></i> 신용 및 매출 요건
+                        </span>
+                        NICE/KCB 기준 하위 50% 이하 중·저신용자 또는 최근 1년 매출 감소 증빙 가능 차주
+                    </div>
+                    <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <span class="font-extrabold text-rose-600 block mb-2 text-base flex items-center gap-1.5">
+                            <i class="fa-solid fa-ban text-rose-600"></i> 지원 제외 대상
+                        </span>
+                        국세·지방세 체납자, 금융기관 연체자, 유흥·사치·음란 등 정책자금 제외 업종
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Product Specs -->
+        <section id="specs" class="bg-white rounded-2xl p-7 sm:p-9 card-shadow border border-slate-100">
+            <div class="mb-8">
+                <span class="text-sm font-extrabold text-blue-700 tracking-wider uppercase bg-blue-100 px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-folder-open"></i> Section 03
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-blue-600"></i>
+                    3. 상품 주요 스펙 (Product Specifications)
+                </h3>
+                <p class="text-slate-600 text-base sm:text-lg mt-2">
+                    운전자금 및 고금리 대환자금 수요를 충족시키기 위한 차주 맞춤형 한도 및 조건 설계
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center hover:border-blue-300 transition-colors">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <div class="text-sm font-bold text-slate-500 uppercase">업체당 대출 한도</div>
+                    <div class="text-3xl sm:text-4xl font-black text-blue-900 my-3">최대 5천만 원</div>
+                    <p class="text-xs sm:text-sm text-slate-600 font-medium">운전자금 및 고금리 대환자금 용도</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center hover:border-blue-300 transition-colors">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <div class="text-sm font-bold text-slate-500 uppercase">최장 대출 기간</div>
+                    <div class="text-3xl sm:text-4xl font-black text-blue-900 my-3">최장 5년</div>
+                    <p class="text-xs sm:text-sm text-slate-600 font-medium">1년 거치 4년 분할상환 or 3년 일시</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center hover:border-emerald-300 transition-colors">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <div class="text-sm font-bold text-slate-500 uppercase">중도상환수수료</div>
+                    <div class="text-3xl sm:text-4xl font-black text-emerald-600 my-3">전액 면제</div>
+                    <p class="text-xs sm:text-sm text-slate-600 font-medium">상환 여력 발생 시 조기상환 수수료 0원</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center hover:border-blue-300 transition-colors">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fa-solid fa-percent"></i>
+                    </div>
+                    <div class="text-sm font-bold text-slate-500 uppercase">적용 기본 금리</div>
+                    <div class="text-3xl sm:text-4xl font-black text-blue-900 my-3">변동금리</div>
+                    <p class="text-xs sm:text-sm text-slate-600 font-medium">금고 조달금리 + 적정 가산금리 적용</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Rate Discount Structure -->
+        <section id="rates" class="bg-white rounded-2xl p-7 sm:p-9 card-shadow border border-slate-100">
+            <div class="mb-8">
+                <span class="text-sm font-extrabold text-blue-700 tracking-wider uppercase bg-blue-100 px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-folder-open"></i> Section 04
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 flex items-center gap-2">
+                    <i class="fa-solid fa-tags text-blue-600"></i>
+                    4. 금리 우대 구조 (최대 연 2.0%p 인하)
+                </h3>
+                <p class="text-slate-600 text-base sm:text-lg mt-2">
+                    지역 상생 기여도와 MG 금융 거래 실적을 연계하여 실질 이자 부담을 대폭 경감합니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <!-- Left Horizontal Stacked Bar Chart -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <h4 class="text-lg font-extrabold text-slate-800 mb-2 text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-chart-bar text-blue-600"></i>
+                        우대 금리 항목별 세부 우대폭 (%p)
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-500 text-center mb-4">지역 상생 (최대 1.0%p) + MG 거래 실적 (최대 1.0%p)</p>
+                    <div class="chart-container">
+                        <canvas id="rateChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Right Itemized Grid -->
+                <div class="space-y-6">
+                    <!-- Group A -->
+                    <div class="border-2 border-blue-200 rounded-2xl p-6 bg-blue-50/40 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-base sm:text-lg font-extrabold text-blue-900 flex items-center gap-2">
+                                <i class="fa-solid fa-map-location-dot text-blue-600"></i> 1. 지역 상생 우대 항목
+                            </span>
+                            <span class="text-xs sm:text-sm font-extrabold text-blue-800 bg-blue-100 px-3 py-1 rounded-full">최대 연 1.0%p</span>
+                        </div>
+                        <div class="space-y-2.5 text-sm sm:text-base">
+                            <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-blue-100 shadow-sm">
+                                <span class="font-medium text-slate-800"><i class="fa-solid fa-check text-blue-600 mr-2"></i>온누리상품권 또는 지역화폐 가맹점</span>
+                                <span class="font-extrabold text-blue-700 text-base">연 0.5%p</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-blue-100 shadow-sm">
+                                <span class="font-medium text-slate-800"><i class="fa-solid fa-check text-blue-600 mr-2"></i>금고 관할 지자체 내 사업장 소재</span>
+                                <span class="font-extrabold text-blue-700 text-base">연 0.3%p</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-blue-100 shadow-sm">
+                                <span class="font-medium text-slate-800"><i class="fa-solid fa-check text-blue-600 mr-2"></i>지자체 이차보전 사업 연계 대상자</span>
+                                <span class="font-extrabold text-blue-700 text-base">연 0.2%p</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group B -->
+                    <div class="border-2 border-amber-200 rounded-2xl p-6 bg-amber-50/40 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-base sm:text-lg font-extrabold text-amber-900 flex items-center gap-2">
+                                <i class="fa-solid fa-mobile-screen-button text-amber-600"></i> 2. MG더뱅킹 및 거래 실적 우대
+                            </span>
+                            <span class="text-xs sm:text-sm font-extrabold text-amber-800 bg-amber-100 px-3 py-1 rounded-full">최대 연 1.0%p</span>
+                        </div>
+                        <div class="space-y-2.5 text-sm sm:text-base">
+                            <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-amber-100 shadow-sm">
+                                <span class="font-medium text-slate-800"><i class="fa-solid fa-check text-amber-600 mr-2"></i>자동이체 및 가맹점 매출 입금계좌 지정</span>
+                                <span class="font-extrabold text-amber-700 text-base">연 0.4%p</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-amber-100 shadow-sm">
+                                <span class="font-medium text-slate-800"><i class="fa-solid fa-check text-amber-600 mr-2"></i>모바일 앱 'MG더뱅킹' 가입 및 이용</span>
+                                <span class="font-extrabold text-amber-700 text-base">연 0.3%p</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-amber-100 shadow-sm">
+                                <span class="font-medium text-slate-800"><i class="fa-solid fa-check text-amber-600 mr-2"></i>MG공제(노란우산/사업자 공제) 가입</span>
+                                <span class="font-extrabold text-amber-700 text-base">연 0.3%p</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Risk Management & EWS Diagram -->
+        <section id="risk" class="bg-white rounded-2xl p-7 sm:p-9 card-shadow border border-slate-100">
+            <div class="mb-8">
+                <span class="text-sm font-extrabold text-blue-700 tracking-wider uppercase bg-blue-100 px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-folder-open"></i> Section 05
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-blue-600"></i>
+                    5. 리스크 관리 방안 및 조기경보 시스템 (EWS)
+                </h3>
+                <p class="text-slate-600 text-base sm:text-lg mt-2">
+                    신용보증재단 연계로 신용 위험을 차단하고, 가맹점 매출 데이터 기반 모니터링으로 부실을 사전 예방합니다.
+                </p>
+            </div>
+
+            <!-- EWS Process Diagram via HTML/CSS -->
+            <div class="bg-slate-50 p-7 rounded-2xl border border-slate-200">
+                <h4 class="text-base sm:text-lg font-bold text-slate-800 mb-6 text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrows-spin text-blue-600"></i> 매출 데이터 연동 부실 예방 및 지원 프로세스
+                </h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-5 relative">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-5 rounded-xl border-2 border-blue-300 relative text-center flex flex-col justify-between shadow-sm">
+                        <div class="text-xs font-black text-blue-700 uppercase bg-blue-100 py-1 px-3 rounded-full w-max mx-auto mb-2">STEP 01</div>
+                        <div class="my-2 font-bold text-slate-800 text-base"><i class="fa-solid fa-money-bill-transfer text-blue-600 mr-1.5"></i>매출 입금계좌 지정</div>
+                        <p class="text-xs sm:text-sm text-slate-600">MG 결제계좌 지정 시 연 0.4%p 우대 혜택 제공</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-5 rounded-xl border-2 border-cyan-300 relative text-center flex flex-col justify-between shadow-sm">
+                        <div class="text-xs font-black text-cyan-700 uppercase bg-cyan-100 py-1 px-3 rounded-full w-max mx-auto mb-2">STEP 02</div>
+                        <div class="my-2 font-bold text-slate-800 text-base"><i class="fa-solid fa-magnifying-glass-dollar text-cyan-600 mr-1.5"></i>월 매출 실시간 감시</div>
+                        <p class="text-xs sm:text-sm text-slate-600">MG더뱅킹 앱 데이터 연동 및 매출 추이 분석</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-5 rounded-xl border-2 border-amber-400 relative text-center flex flex-col justify-between shadow-sm">
+                        <div class="text-xs font-black text-amber-800 uppercase bg-amber-100 py-1 px-3 rounded-full w-max mx-auto mb-2">STEP 03</div>
+                        <div class="my-2 font-bold text-slate-800 text-base"><i class="fa-solid fa-bell text-amber-500 mr-1.5"></i>EWS 조기경보 발동</div>
+                        <p class="text-xs sm:text-sm text-slate-600">3개월 연속 매출 30%↓ 감지 시 심사역 자동 알림</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-white p-5 rounded-xl border-2 border-emerald-500 relative text-center flex flex-col justify-between shadow-sm">
+                        <div class="text-xs font-black text-emerald-800 uppercase bg-emerald-100 py-1 px-3 rounded-full w-max mx-auto mb-2">STEP 04</div>
+                        <div class="my-2 font-bold text-slate-800 text-base"><i class="fa-solid fa-user-doctor text-emerald-600 mr-1.5"></i>경영 컨설팅 지원</div>
+                        <p class="text-xs sm:text-sm text-slate-600">소상공인지원센터 연계 세무·법률 무료 자문</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Mitigation Details Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 text-sm sm:text-base">
+                <div class="bg-blue-50/60 p-6 rounded-2xl border border-blue-200">
+                    <span class="font-extrabold text-blue-900 text-base sm:text-lg block mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-cat text-blue-700"></i> 지역신용보증재단 100%/95% 부분보증
+                    </span>
+                    <p class="text-slate-700 leading-relaxed">
+                        중앙회의 165억 원 특별출연금을 바탕으로 신용보증재단 보증서를 담보로 확보하여 취급 금고의 신용 부실 리스크를 원천 차단합니다.
+                    </p>
+                </div>
+                <div class="bg-emerald-50/60 p-6 rounded-2xl border border-emerald-200">
+                    <span class="font-extrabold text-emerald-900 text-base sm:text-lg block mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-handshake-angle text-emerald-700"></i> 자립 지원 경영 컨설팅 무상 제공
+                    </span>
+                    <p class="text-slate-700 leading-relaxed">
+                        단순 자금 대출에 그치지 않고, 지자체 소상공인지원센터와 협력하여 경영 컨설팅을 제공함으로써 차주의 자립 기반과 상환 능력을 제고합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Expected Impact & Timeline -->
+        <section id="impact" class="bg-white rounded-2xl p-7 sm:p-9 card-shadow border border-slate-100">
+            <div class="mb-8">
+                <span class="text-sm font-extrabold text-blue-700 tracking-wider uppercase bg-blue-100 px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-folder-open"></i> Section 06
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 flex items-center gap-2">
+                    <i class="fa-solid fa-trophy text-blue-600"></i>
+                    6. 기대 효과 및 추진 일정
+                </h3>
+                <p class="text-slate-600 text-base sm:text-lg mt-2">
+                    재무적 효과와 비재무적 브랜드 이점을 동시에 달성하는 지속가능한 포용금융 모델
+                </p>
+            </div>
+
+            <!-- Financial vs Non-Financial Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="border-2 border-slate-200 rounded-2xl p-6 bg-gradient-to-b from-slate-50 to-white shadow-sm">
+                    <h4 class="text-lg font-extrabold text-blue-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-blue-600 text-xl"></i> 재무적 기대 효과
+                    </h4>
+                    <ul class="text-sm sm:text-base text-slate-700 space-y-3 list-none pl-0">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-blue-600 mt-1"></i>
+                            <span><strong>저원가성 수신 확충:</strong> 가맹점 매출대금 입금계좌 유치를 통해 핵심 수신(Demand Deposit) 기반 증대.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-blue-600 mt-1"></i>
+                            <span><strong>안전 여신 자산 확대:</strong> 보증서 담보 기반 안전 대출 확대로 NPL 관리 및 안정적 수익 확보.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-blue-600 mt-1"></i>
+                            <span><strong>MG더뱅킹 활성화:</strong> 소상공인 모바일 기업뱅킹 이용자 확대로 디지털 경쟁력 강화.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-2 border-slate-200 rounded-2xl p-6 bg-gradient-to-b from-slate-50 to-white shadow-sm">
+                    <h4 class="text-lg font-extrabold text-emerald-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-seedling text-emerald-600 text-xl"></i> 비재무적 기대 효과 (ESG)
+                    </h4>
+                    <ul class="text-sm sm:text-base text-slate-700 space-y-3 list-none pl-0">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-emerald-600 mt-1"></i>
+                            <span><strong>ESG 상생 브랜딩:</strong> 고금리 시기 서민금융 포용을 통한 협동조합 사회적 책임(S) 실천.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-emerald-600 mt-1"></i>
+                            <span><strong>지역사회 신뢰 제고:</strong> 전통시장 및 소상공인 중심의 진정성 있는 서민금융 본연의 역할 수행.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-emerald-600 mt-1"></i>
+                            <span><strong>지자체 금고 유치 우위:</strong> 지자체 연계 상생협력 모델 확립을 통해 향후 지자체 금고 지정 경쟁력 강화.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Timeline Diagram via Standard HTML/CSS -->
+            <div>
+                <h4 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-6 text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-days text-blue-600"></i> 2026년 하반기 주요 추진 일정 (3개월 달력 한눈에 보기)
+                </h4>
+
+                <!-- 3-Month Side-by-Side Responsive Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                    <!-- Month 1: September 2026 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-3">
+                                <h5 class="font-extrabold text-blue-900 text-lg flex items-center gap-2">
+                                    <i class="fa-regular fa-calendar-check text-blue-600"></i> 2026년 9월
+                                </h5>
+                                <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full">협약 & 개발</span>
+                            </div>
+
+                            <!-- Calendar Header Days -->
+                            <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs py-1 text-slate-500 mb-1">
+                                <div class="text-rose-500">일</div>
+                                <div>월</div>
+                                <div>화</div>
+                                <div>수</div>
+                                <div>목</div>
+                                <div>금</div>
+                                <div class="text-blue-600">토</div>
+                            </div>
+
+                            <!-- Grid (Sep 1 starts on Tuesday) -->
+                            <div class="grid grid-cols-7 gap-1 text-xs">
+                                <div class="h-10 bg-slate-100/40 rounded"></div>
+                                <div class="h-10 bg-slate-100/40 rounded"></div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">1</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">2</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">3</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">4</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">5</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">6</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">7</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">8</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">9</div>
+                                <div class="h-10 bg-blue-50 p-0.5 rounded border-2 border-blue-400 font-bold text-slate-900">
+                                    <span>10</span>
+                                    <div class="text-[9px] bg-blue-600 text-white rounded px-0.5 truncate">기획 확정</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">11</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">12</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">13</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">14</div>
+                                <div class="h-10 bg-blue-100 p-0.5 rounded border-2 border-blue-600 font-bold text-slate-900 shadow-sm">
+                                    <span class="text-blue-800">15</span>
+                                    <div class="text-[9px] bg-blue-700 text-white font-extrabold rounded px-0.5 truncate"><i class="fa-solid fa-file-contract"></i> MOU 체결</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">16</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">17</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">18</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">19</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">20</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">21</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">22</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">23</div>
+                                <div class="h-10 bg-sky-50 p-0.5 rounded border-2 border-sky-400 font-bold text-slate-900">
+                                    <span>24</span>
+                                    <div class="text-[9px] bg-sky-600 text-white rounded px-0.5 truncate">전산 개발</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">25</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">26</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">27</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">28</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">29</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">30</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] text-blue-600"></i><strong>9월 15일:</strong> 지자체·지역신보 업무협약(MOU)</div>
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] text-sky-500"></i><strong>9월 24일:</strong> 여신 및 보증 연동 전산 개발 완료</div>
+                        </div>
+                    </div>
+
+                    <!-- Month 2: October 2026 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-3">
+                                <h5 class="font-extrabold text-indigo-900 text-lg flex items-center gap-2">
+                                    <i class="fa-regular fa-calendar-check text-indigo-600"></i> 2026년 10월
+                                </h5>
+                                <span class="text-xs font-bold bg-indigo-100 text-indigo-800 px-2.5 py-1 rounded-full">지침 & 홍보</span>
+                            </div>
+
+                            <!-- Calendar Header Days -->
+                            <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs py-1 text-slate-500 mb-1">
+                                <div class="text-rose-500">일</div>
+                                <div>월</div>
+                                <div>화</div>
+                                <div>수</div>
+                                <div>목</div>
+                                <div>금</div>
+                                <div class="text-blue-600">토</div>
+                            </div>
+
+                            <!-- Grid (Oct 1 starts on Thursday) -->
+                            <div class="grid grid-cols-7 gap-1 text-xs">
+                                <div class="h-10 bg-slate-100/40 rounded"></div>
+                                <div class="h-10 bg-slate-100/40 rounded"></div>
+                                <div class="h-10 bg-slate-100/40 rounded"></div>
+                                <div class="h-10 bg-slate-100/40 rounded"></div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">1</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">2</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">3</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">4</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">5</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">6</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">7</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">8</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">9</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">10</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">11</div>
+                                <div class="h-10 bg-blue-100 p-0.5 rounded border-2 border-blue-600 font-bold text-slate-900 shadow-sm">
+                                    <span class="text-blue-800">12</span>
+                                    <div class="text-[9px] bg-blue-700 text-white font-extrabold rounded px-0.5 truncate"><i class="fa-solid fa-bullhorn"></i> 지침 시달</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">13</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">14</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">15</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">16</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">17</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">18</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">19</div>
+                                <div class="h-10 bg-indigo-50 p-0.5 rounded border-2 border-indigo-400 font-bold text-slate-900">
+                                    <span>20</span>
+                                    <div class="text-[9px] bg-indigo-600 text-white rounded px-0.5 truncate">심사역 교육</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">21</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">22</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">23</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">24</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">25</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">26</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">27</div>
+                                <div class="h-10 bg-amber-50 p-0.5 rounded border-2 border-amber-400 font-bold text-slate-900">
+                                    <span>28</span>
+                                    <div class="text-[9px] bg-amber-600 text-white rounded px-0.5 truncate">현장 홍보</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">29</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">30</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">31</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] text-blue-600"></i><strong>10월 12일:</strong> 전국 526개 참여 금고 지침 시달</div>
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] text-amber-500"></i><strong>10월 28일:</strong> 전통시장/지역화폐 가맹점 홍보</div>
+                        </div>
+                    </div>
+
+                    <!-- Month 3: November 2026 -->
+                    <div class="bg-emerald-50/50 border-2 border-emerald-300 rounded-2xl p-4 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between pb-3 border-b border-emerald-200 mb-3">
+                                <h5 class="font-extrabold text-emerald-900 text-lg flex items-center gap-2">
+                                    <i class="fa-regular fa-calendar-check text-emerald-600"></i> 2026년 11월
+                                </h5>
+                                <span class="text-xs font-black bg-emerald-600 text-white px-2.5 py-1 rounded-full"><i class="fa-solid fa-rocket mr-0.5"></i> 공식 출시</span>
+                            </div>
+
+                            <!-- Calendar Header Days -->
+                            <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs py-1 text-slate-500 mb-1">
+                                <div class="text-rose-500">일</div>
+                                <div>월</div>
+                                <div>화</div>
+                                <div>수</div>
+                                <div>목</div>
+                                <div>금</div>
+                                <div class="text-blue-600">토</div>
+                            </div>
+
+                            <!-- Grid (Nov 1 starts on Sunday) -->
+                            <div class="grid grid-cols-7 gap-1 text-xs">
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">1</div>
+                                <div class="h-10 bg-emerald-100 p-0.5 rounded border-2 border-emerald-600 font-black text-slate-900 shadow-md">
+                                    <span class="text-emerald-900">2</span>
+                                    <div class="text-[9px] bg-emerald-600 text-white font-black rounded px-0.5 truncate"><i class="fa-solid fa-rocket"></i> 전국 출시</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">3</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">4</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">5</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">6</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">7</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">8</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">9</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">10</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">11</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">12</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">13</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">14</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">15</div>
+                                <div class="h-10 bg-emerald-100 p-0.5 rounded border-2 border-emerald-500 font-bold text-slate-900">
+                                    <span>16</span>
+                                    <div class="text-[9px] bg-emerald-700 text-white rounded px-0.5 truncate">집행 점검</div>
+                                </div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">17</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">18</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">19</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">20</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">21</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">22</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">23</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">24</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">25</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">26</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-slate-700">27</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-blue-600">28</div>
+                                <div class="h-10 bg-white p-0.5 rounded border border-slate-100 text-rose-500">29</div>
+                                <div class="h-10 bg-cyan-100 p-0.5 rounded border-2 border-cyan-500 font-bold text-slate-900">
+                                    <span>30</span>
+                                    <div class="text-[9px] bg-cyan-700 text-white rounded px-0.5 truncate">EWS 가동</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-emerald-200 text-xs text-slate-700 space-y-1">
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] text-emerald-600"></i><strong>11월 02일:</strong> 전국 공식 출시 및 보증 대출 신청 접수</div>
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] text-cyan-600"></i><strong>11월 30일:</strong> EWS 조기경보 시스템 본격 가동</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-sm py-10 px-4 border-t border-slate-800 mt-16">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-extrabold text-slate-200 text-base"><i class="fa-solid fa-building-columns text-sky-400 mr-2"></i>새마을금고중앙회 금융상품개발팀</p>
+                <p class="mt-1 text-xs sm:text-sm text-slate-400">본 인포그래픽 보고서는 내부 기획용 시안이며, 세부 스펙은 확정 고시 시 변동될 수 있습니다.</p>
+            </div>
+            <div class="text-right text-slate-500 text-xs sm:text-sm">
+                <p>© 2026 KFCC All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js Script Configurations -->
+    <script>
+        // Set Chart defaults for larger typography
+        Chart.defaults.font.size = 13;
+        Chart.defaults.font.family = "'Noto Sans KR', sans-serif";
+        Chart.defaults.color = '#334155';
+
+        // Helper function for label wrapping (16-char logic)
+        function wrapLabel(label) {
+            if (typeof label !== 'string') return label;
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        // Tooltip Callback Config for Label Arrays
+        const globalTooltipConfig = {
+            plugins: {
+                tooltip: {
+                    titleFont: { size: 14, weight: 'bold' },
+                    bodyFont: { size: 13 },
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Chart 1: Small Business Debt & Delinquency Trend (Bar/Line Combo)
+        const ctxCrisis = document.getElementById('crisisChart').getContext('2d');
+        new Chart(ctxCrisis, {
+            type: 'bar',
+            data: {
+                labels: ['전체 대출 규모', '개인사업자 연체액', '제주 협약 공급액', '전국 시범 특례공급'].map(wrapLabel),
+                datasets: [
+                    {
+                        label: '금액 (억 원)',
+                        data: [10700000, 146000, 2500, 20000],
+                        backgroundColor: ['#004ea2', '#e11d48', '#00a3e0', '#059669'],
+                        borderRadius: 8
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: { font: { size: 12, weight: 'bold' } }
+                    },
+                    y: {
+                        type: 'logarithmic',
+                        title: { display: true, text: '규모 (억 원, 로그 스케일)', font: { size: 12, weight: 'bold' } },
+                        ticks: { font: { size: 11 } }
+                    }
+                },
+                ...globalTooltipConfig
+            }
+        });
+
+        // Chart 2: Leverage Doughnut
+        const ctxLeverage = document.getElementById('leverageChart').getContext('2d');
+        new Chart(ctxLeverage, {
+            type: 'doughnut',
+            data: {
+                labels: ['중앙회 특별출연금 (165억)', '레버리지 생성 대출 여력 (1,835억)'].map(wrapLabel),
+                datasets: [{
+                    data: [165, 1835],
+                    backgroundColor: ['#f59e0b', '#004ea2'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { boxWidth: 14, font: { size: 13, weight: 'bold' } } },
+                    ...globalTooltipConfig.plugins
+                }
+            }
+        });
+
+        // Chart 3: Rate Discount Breakdown
+        const ctxRate = document.getElementById('rateChart').getContext('2d');
+        new Chart(ctxRate, {
+            type: 'bar',
+            data: {
+                labels: ['가맹점 등록', '지역 사업장', '이차보전 연계', '매출계좌 지정', 'MG더뱅킹 앱', 'MG공제 가입'].map(wrapLabel),
+                datasets: [{
+                    label: '우대 금리 폭 (%p)',
+                    data: [0.5, 0.3, 0.2, 0.4, 0.3, 0.3],
+                    backgroundColor: ['#004ea2', '#0072ce', '#00a3e0', '#f59e0b', '#fbbf24', '#d97706'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        max: 0.6,
+                        title: { display: true, text: '우대금리 (%p)', font: { size: 12, weight: 'bold' } },
+                        ticks: { font: { size: 12 } }
+                    },
+                    y: {
+                        ticks: { font: { size: 12, weight: 'bold' } }
+                    }
+                },
+                ...globalTooltipConfig
+            }
+        });
+
+        // AI Mascot Banner Image Generation Function
+        async function autoGeneratePoster() {
+            const loading = document.getElementById('posterLoading');
+            const result = document.getElementById('posterResult');
+            const imgEl = document.getElementById('generatedPosterImg');
+
+            loading.classList.remove('hidden');
+            result.classList.add('hidden');
+
+            const prompt = "A ultra-high quality, warm and professional horizontal widescreen promotional poster for Korean MG Saemaul Geumgo Bank (새마을금고). Features the cute blue bird mascot 'Blue' holding a glowing golden heart, warmly shaking hands with a smiling traditional market merchant auntie in front of a clean, lively Korean traditional market stall with fruits and banners. Beautiful header text in bold Korean typography reads '새마을금고와 함께 그리는 상생의 미래', 'MG 상생 희망드림 대출'. Warm golden lighting, 3D digital illustration, heartwarming and encouraging atmosphere.";
+
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }],
+                        generationConfig: {
+                            responseModalities: ['IMAGE'],
+                            imageConfig: { aspectRatio: "16:9" }
+                        }
+                    })
+                });
+
+                const data = await response.json();
+                const base64Data = data?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+
+                if (base64Data) {
+                    imgEl.src = `data:image/png;base64,${base64Data}`;
+                    loading.classList.add('hidden');
+                    result.classList.remove('hidden');
+                } else {
+                    loading.classList.add('hidden');
+                    result.classList.remove('hidden');
+                    imgEl.src = "https://placehold.co/1200x675/004ea2/ffffff?text=MG+%EC%83%81%EC%83%9D+%ED%9D%AC%EB%A1%9D%EB%93%9C%EB%A6%BC+%EB%8C%80%EC%B6%9C+%ED%8F%AC%EC%8A%A4%ED%84%B0";
+                }
+            } catch (err) {
+                console.error(err);
+                loading.classList.add('hidden');
+                result.classList.remove('hidden');
+                imgEl.src = "https://placehold.co/1200x675/004ea2/ffffff?text=MG+%EC%83%81%EC%83%9D+%ED%9D%AC%EB%A1%9D%EB%93%9C%EB%A6%BC+%EB%8C%80%EC%B6%9C+%ED%8F%AC%EC%8A%A4%ED%84%B0";
+            }
+        }
+
+        // Auto trigger poster rendering on window load
+        window.onload = function() {
+            // Document completely loaded with static high-quality vector artwork embedded
+        };
+    </script>
+</body>
+</html>
