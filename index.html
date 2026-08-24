@@ -58,36 +58,63 @@
                     지역 소상공인 경영난 극복 지원 및 포용적 서민금융 확대를 위한 지역 밀착형 맞춤 특례상품 기획서
                 </p>
             </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/25 text-right min-w-[250px] shadow-lg">
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/25 text-right min-w-[280px] sm:min-w-[380px] shadow-lg">
                 <div class="text-sm text-sky-200 font-medium"><i class="fa-solid fa-file-signature mr-1"></i>문서 번호</div>
                 <div class="text-base font-mono font-bold">FPD-2026-0824</div>
                 <div class="text-sm text-sky-200 mt-3 font-medium"><i class="fa-solid fa-vault mr-1"></i>최대 공급 규모</div>
-                <div class="text-3xl font-black text-amber-300">2,000억 원 + α</div>
+                <div class="text-3xl font-black text-amber-300 mb-3">2,000억 원 + α</div>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                    <a href="https://kfcc010-droid.github.io/mg0824/cal" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs shadow-md transition-transform hover:scale-105 border border-amber-200 text-center w-full whitespace-nowrap">
+                        <i class="fa-solid fa-calculator text-xs shrink-0"></i>
+                        <span>대출계산기</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-80 shrink-0"></i>
+                    </a>
+                    <a href="https://kfcc010-droid.github.io/mg0824/game" target="_blank" rel="noopener noreferrer" title="파랑이의 희망금융 모험하기" class="flex items-center justify-center gap-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black py-2.5 px-2.5 rounded-xl text-[11px] sm:text-xs shadow-md transition-transform hover:scale-105 border border-purple-300 text-center w-full whitespace-nowrap">
+                        <i class="fa-solid fa-gamepad text-xs shrink-0"></i>
+                        <span>파랑이의 희망금융 모험하기</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-80 shrink-0"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Navigation / Sticky Bar -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 flex overflow-x-auto space-x-6 text-base font-bold py-3.5 scrollbar-none">
-            <a href="#overview" class="text-blue-900 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-chart-line text-blue-600"></i>1. 기획 배경
-            </a>
-            <a href="#target" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-users text-blue-600"></i>2. 타깃 및 자격
-            </a>
-            <a href="#specs" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-sliders text-blue-600"></i>3. 상품 스펙
-            </a>
-            <a href="#rates" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-percent text-blue-600"></i>4. 금리 우대
-            </a>
-            <a href="#risk" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-shield-halved text-blue-600"></i>5. 리스크 관리
-            </a>
-            <a href="#impact" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-chart-pie text-blue-600"></i>6. 기대효과
-            </a>
+        <div class="max-w-6xl mx-auto px-4 flex overflow-x-auto space-x-6 text-base font-bold py-3.5 scrollbar-none items-center justify-between">
+            <div class="flex space-x-6 items-center">
+                <a href="#overview" class="text-blue-900 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-blue-600"></i>1. 기획 배경
+                </a>
+                <a href="#target" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-users text-blue-600"></i>2. 타깃 및 자격
+                </a>
+                <a href="#specs" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-blue-600"></i>3. 상품 스펙
+                </a>
+                <a href="#rates" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-percent text-blue-600"></i>4. 금리 우대
+                </a>
+                <a href="#risk" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-blue-600"></i>5. 리스크 관리
+                </a>
+                <a href="#impact" class="text-slate-700 hover:text-blue-600 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-chart-pie text-blue-600"></i>6. 기대효과
+                </a>
+            </div>
+            <!-- 대출계산기 & 게임 바로가기 버튼 그룹 -->
+            <div class="flex items-center gap-2 ml-4 shrink-0">
+                <a href="https://kfcc010-droid.github.io/mg0824/cal" target="_blank" rel="noopener noreferrer" class="bg-amber-400 hover:bg-amber-500 text-slate-950 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black whitespace-nowrap flex items-center justify-center gap-1.5 shadow-sm transition-transform hover:scale-105 border border-amber-300">
+                    <i class="fa-solid fa-calculator text-slate-950"></i>
+                    <span>대출계산기</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+                </a>
+                <a href="https://kfcc010-droid.github.io/mg0824/game" target="_blank" rel="noopener noreferrer" title="파랑이의 희망금융 모험하기" class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-xl text-xs sm:text-sm font-black whitespace-nowrap flex items-center justify-center gap-1.5 shadow-sm transition-transform hover:scale-105 border border-indigo-400">
+                    <i class="fa-solid fa-gamepad text-sm shrink-0"></i>
+                    <span class="whitespace-nowrap">파랑이의 희망금융 모험하기</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80 shrink-0"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
